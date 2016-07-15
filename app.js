@@ -18,8 +18,10 @@ var Crawler = {
   				console.log('Error: ' + err);
   			var $ = Crawler.cheerio.load(body);
         var livro  =  $('#deal-of-the-day > div > div > div.dotd-main-book-summary.float-left > div.dotd-title > h2').html().toString().trim();
+        var descricao = $('#deal-of-the-day > div > div > div.dotd-main-book-summary.float-left > div:nth-child(4)').html().toString().trim();
 
         console.log('\n\t' + livro.green + '\n');
+        console.log('descricao: '.yellow + descricao);
 
         Crawler.fs.appendFile('log.txt', livro+' '+ new Date().toString() + '\n');
   		});
