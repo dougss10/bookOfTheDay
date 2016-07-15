@@ -1,4 +1,5 @@
 var colors = require('colors');
+var arquivoLog = __dirname + '\\log.txt';
 var Crawler = {
 	request : null,
 	cheerio : null,
@@ -8,7 +9,6 @@ var Crawler = {
 		Crawler.request = require('request');
 		Crawler.cheerio = require('cheerio');
     Crawler.fs      = require('fs');
-		Crawler.colors      = require('colors');
 		Crawler.getMovies();
 	},
 	getMovies: function(){
@@ -23,9 +23,14 @@ var Crawler = {
         console.log('\n\t' + livro.green + '\n');
         console.log('descricao: '.yellow + descricao);
 
-        Crawler.fs.appendFile('log.txt', livro+' '+ new Date().toString() + '\n');
-  		});
+        Crawler.fs.readFile(arquivoLog, 'utf8', function(err, data) {
+          if(err) throw err;
 
+          if(data.indexOf(livro) == -1) {
+           Crawler.fs.appendFile(arquivoLog, livro+' '+ new Date().toString() + '\n');
+          }
+        });
+  		});
 	}
 };
 Crawler.init();
