@@ -1,0 +1,24 @@
+{
+  "name": "bookoftheday",
+  "version": "1.0.0",
+  "description": "capturar o nome do livro disponivel no free learning da PacktPub",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougss10/bookOfTheDay.git"
+  },
+  "author": "Douglas <douglas-da.silva.santos@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dougss10/bookOfTheDay/issues"
+  },
+  "homepage": "https://github.com/dougss10/bookOfTheDay#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "colors": "^1.1.2",
+    "request": "^2.73.0"
+  }
+}
